@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel | Green Turf Arena</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body { background: #0d1117; color: #e5e5e5; }
+    .admin-table-container {
+      max-width: 1100px;
+      margin: 2rem auto;
+      background: #161b22;
+      border-radius: 16px;
+      box-shadow: 0 0 24px rgba(0,191,255,0.08);
+      padding: 2rem;
+    }
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+    .admin-table th, .admin-table td {
+      padding: 0.8rem 0.5rem;
+      border-bottom: 1px solid #222c3a;
+      text-align: center;
+      font-size: 1rem;
+    }
+    .admin-table th {
+      background: #101726;
+      color: #00bfff;
+      font-weight: 700;
+    }
+    .admin-table tr:hover {
+      background: #222c3a;
+    }
+    .admin-table img {
+      max-width: 80px;
+      max-height: 80px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,191,255,0.10);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .admin-table img:hover {
+      transform: scale(1.8);
+      z-index: 10;
+      position: relative;
+    }
+    .remove-btn {
+      background: #ff3b3b;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .remove-btn:hover {
+      background: #d90429;
+    }
+    .status-confirmed { color: #00cc66; font-weight: 700; }
+    .status-pending { color: #ffb300; font-weight: 700; }
+    .status-cancelled { color: #ff3b3b; font-weight: 700; }
+    @media (max-width: 700px) {
+      .admin-table th, .admin-table td { font-size: 0.85rem; padding: 0.5rem 0.2rem; }
+      .admin-table img { max-width: 50px; max-height: 50px; }
+    }
+
+    /* Responsive admin table for mobile */
+@media (max-width: 700px) {
+  .admin-table, .admin-table thead, .admin-table tbody, .admin-table tr, .admin-table th, .admin-table td {
+    display: block;
+    width: 100%;
+  }
+  .admin-table thead {
+    display: none;
+  }
+  .admin-table tr {
+    margin-bottom: 1.5rem;
+    background: #1a2233;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,191,255,0.08);
+    padding: 1rem 0.5rem;
+  }
+  .admin-table td {
+    border: none;
+    padding: 0.5rem 0.7rem;
+    text-align: left;
+    position: relative;
+    font-size: 1rem;
+  }
+  .admin-table td:before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #00bfff;
+    display: block;
+    margin-bottom: 0.2rem;
+    font-size: 0.95em;
+  }
+  .remove-btn {
+    width: 100%;
+    margin-top: 0.7rem;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="admin-table-container">
+    <h2 style="text-align:center;">Admin Panel - All Bookings</h2>
+    <table class="admin-table" id="bookingsTable">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Slot Time</th>
+          <th>Booker Name</th>
+          <th>Payment Ref</th>
+          <th>Screenshot</th>
+          <th>Status</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody id="bookingsTableBody">
+        <!-- Filled by JS -->
+      </tbody>
+    </table>
+  </div>
+  
+  <script type="module" src="firebase.js"></script>
+  <script type="module" src="admin.js"></script>
+</body>
+</html>

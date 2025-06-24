@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Green Turf Arena | Home</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+<!-- ========================
+     Navbar + Login Modal
+=========================== -->
+<header class="navbar">
+  <div class="navbar-container">
+    <div class="logo">TurfBooking</div>
+    <!-- Desktop Navigation -->
+    <nav class="nav-links desktop-nav">
+      <a href="index.html">Home</a>
+      <a href="booking.html">Book Slot</a>
+      <a href="#offers">Offers</a>
+      <a href="#" id="loginNavBtn">Admin/Login</a>
+      <button id="yourSlotBtnDesktop" class="your-slot-btn">
+        <span>🎟️ Your Slot</span>
+      </button>
+    </nav>
+    <!-- Mobile Toggle -->
+    <button id="mobileMenuButton" class="mobile-toggle">☰</button>
+  </div>
+  <!-- Mobile Navigation -->
+  <div id="mobileMenu" class="nav-links mobile-nav hidden">
+    <a href="index.html">Home</a>
+    <a href="booking.html">Book Slot</a>
+    <a href="#offers">Offers</a>
+    <a href="#" id="loginNavBtnMobile">Admin/Login</a>
+    <button id="yourSlotBtnMobile" class="your-slot-btn">
+      <span>🎟️ Your Slot</span>
+    </button>
+  </div>
+</header>
+
+<!-- ========================
+     Login/Register Modal
+=========================== -->
+<div id="loginModal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Login / Register</h3>
+    <input type="email" id="authEmail" placeholder="Email" class="input-field" />
+    <input type="password" id="authPassword" placeholder="Password" class="input-field" />
+    <button class="modal-btn google-btn" id="googleSignInBtn">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
+      Sign in with Google
+    </button>
+    <button class="modal-btn confirm" onclick="loginUser()">Login</button>
+    <button class="modal-btn" onclick="registerUser()">Register</button>
+    <button class="modal-btn cancel" onclick="toggleLoginModal(false)">Cancel</button>
+  </div>
+</div>
+
+<!-- ========================
+     Your Slot Modal
+=========================== -->
+<div id="yourSlotModal" class="modal hidden">
+  <div class="modal-content">
+    <h3>Your Booked Slots</h3>
+    <div id="yourSlotList">Loading...</div>
+    <button class="modal-btn cancel" onclick="toggleYourSlotModal(false)">Close</button>
+  </div>
+</div>
+
+<!-- ========================
+     Offer Banner
+=========================== -->
+<section class="offer-banner" id="offers">
+  <span class="offer-icon">🎉</span>
+  <span class="offer-text">Mega Monsoon Offer: Book 2 slots, get 1 FREE! &nbsp;|&nbsp; Refer a friend and get ₹100 cashback!</span>
+</section>
+
+<!-- ========================
+     Hero Section
+=========================== -->
+<section class="hero">
+  <div class="hero-image-card">
+    <img src="image.png" alt="Turf Image" class="hero-image" />
+  </div>
+  <h1 class="hero-title">Welcome to Green Turf Arena</h1>
+  <p class="hero-subtitle">Book your turf slot online. Easy, Fast, and Reliable!</p>
+  <a href="booking.html" class="primary-btn">Book a Slot</a>
+</section>
+<!-- Stylish SVG wave at bottom of hero -->
+<svg viewBox="0 0 1440 120" style="display:block;width:100%;margin-top:-2rem;" xmlns="http://www.w3.org/2000/svg"><path fill="#101726" fill-opacity="1" d="M0,64L1440,120L1440,0L0,0Z"></path></svg>
+
+<!-- ========================
+     Features Section
+=========================== -->
+<section class="features">
+  <div class="feature-card">
+    <span>⚡</span>
+    <h3>Instant Booking</h3>
+    <p>Book your slot in seconds, no waiting!</p>
+  </div>
+  <div class="feature-card">
+    <span>🛡️</span>
+    <h3>Secure Payments</h3>
+    <p>Pay safely with UPI and get instant confirmation.</p>
+  </div>
+  <div class="feature-card">
+    <span>📱</span>
+    <h3>Mobile Friendly</h3>
+    <p>Book and manage slots from any device.</p>
+  </div>
+</section>
+
+<!-- ========================
+     Scripts
+=========================== -->
+<script type="module" src="firebase.js"></script>
+<script type="module" src="script.js"></script>
+</body>
+</html>
